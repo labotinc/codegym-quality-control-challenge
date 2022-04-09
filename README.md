@@ -1,0 +1,1 @@
+# codegym-quality-control-challenge
