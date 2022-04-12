@@ -23,7 +23,7 @@ if (isset($_GET['user_id']) && $_GET['user_id'] > 0){
 
 <body>
   <div class="container">
-    <h1 class="my-5">プロフィール表示</h1>
+    <h1 class="my-5">ユーザー一覧</h1>
     
     <p><a href="../index.php">&lt;&lt; 掲示板に戻る</a></p>
     

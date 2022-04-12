@@ -33,7 +33,7 @@ $updated_at = $user['updated_at'];
 
 <body>
   <div class="container">
-    <h1 class="my-5">プロフィール表示</h1>
+    <h1 class="my-5">ユーザー情報変更</h1>
     
     <p><a href="../index.php">&lt;&lt; 掲示板に戻る</a></p>
     
