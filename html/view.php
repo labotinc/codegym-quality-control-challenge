@@ -2,8 +2,17 @@
 require_once('db.php');
 require_once('functions.php');
 
-/* 返信課題はここからのコードを修正しましょう。 */
+session_start();
 
+if (empty($_SESSION['user_id'])) {
+    header('Location: login.php');
+}
+
+/* 返信課題はここからのコードを修正しましょう。 */
+if (isset($_GET['id'])) {
+  $id = intval($_GET['id']);
+}
+$tweet = getTweet($id)[0];
 /* 返信課題はここまでのコードを修正しましょう。 */
 ?>
 
@@ -21,8 +30,8 @@ require_once('functions.php');
     <div class="card mb-3">
       <div class="card-body">
         <!-- 返信課題はここからのコードを修正しましょう。 -->
-          <p class="card-title"><b>2</b> <small>nagata1 YYYY-MM-DD hh:mm:ss</small></p>
-          <p class="card-text">投稿2つ目</p>
+          <p class="card-title"><b><?= $tweet['id'] ?></b> <small><?= h($tweet['name']) ?> <?= $tweet['created_at'] ?></small></p>
+          <p class="card-text"><?= h($tweet['text']) ?></p>
         <!-- 返信課題はここまでのコードを修正しましょう。 -->
       </div>
     </div>

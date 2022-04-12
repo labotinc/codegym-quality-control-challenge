@@ -8,7 +8,7 @@ services:
     ports:
       - 20680:80
     environment:
-      TZ: Asia/Tokyo
+      TZ: UTC
   db:
     build:
       context: ./docker/db
@@ -17,7 +17,7 @@ services:
     environment:
       - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
       - MYSQL_DATABASE=bbs
-      - TZ=Asia/Tokyo
+      - TZ="UTC"
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
     environment:

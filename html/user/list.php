@@ -1,10 +1,15 @@
 <?php
 require_once('../db.php');
 require_once('../functions.php');
+session_start();
+
+if (! isset($_SESSION['user_id'])) {
+    header('Location: /login.php');
+}
 
 if (isset($_GET['user_id']) && $_GET['user_id'] > 0){
     $user_id = intval($_GET['user_id']);
-    $users = getUsersById($user_id);
+    $users[0] = getUserById($user_id);
 } else {
     $user_id = '';
     $users = getUsers();
@@ -26,7 +31,7 @@ if (isset($_GET['user_id']) && $_GET['user_id'] > 0){
       <div class="card-body">
         <!-- ユーザー一覧 -->
         <form>
-            <input name='user_id' value=<?= "{$user_id}" ?>>
+            ユーザーID検索：<input name='user_id' value=<?= "{$user_id}" ?>>
             <input class="btn btn-primary" type=submit value='検索'>
         </form>
         <hr>

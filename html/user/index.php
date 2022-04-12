@@ -3,6 +3,10 @@ require_once('../db.php');
 require_once('../functions.php');
 session_start();
 
+if (! isset($_SESSION['user_id'])) {
+    header('Localtion: /login.php');
+}
+
 $user = getUserById($_GET['user_id']);
 ?>
 
